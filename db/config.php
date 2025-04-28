@@ -6,24 +6,50 @@
  */
 
 // Database connection parameters
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');  // Change to your MySQL username
-define('DB_PASS', '');      // Change to your MySQL password
-define('DB_NAME', 'mini_crm');
+if (!defined('DB_HOST')) {
+    define('DB_HOST', '127.0.0.1'); // Thay đổi từ 'localhost' sang '127.0.0.1'
+}
+if (!defined('DB_USER')) {
+    define('DB_USER', 'root');  // Thay đổi thành tên người dùng MySQL của bạn nếu cần
+}
+if (!defined('DB_PASS')) {
+    define('DB_PASS', '');      // Thay đổi thành mật khẩu MySQL của bạn nếu có
+}
+if (!defined('DB_NAME')) {
+    define('DB_NAME', 'mini_crm'); // Đảm bảo database này đã được tạo
+}
+if (!defined('DB_PORT')) {
+    define('DB_PORT', 3307);    // Cập nhật port từ 3306 sang 3307 cho XAMPP
+}
 
 // Base URL for the application
-define('BASE_URL', 'http://localhost:8000');
+if (!defined('BASE_URL')) {
+    define('BASE_URL', 'http://localhost:8000');
+}
 
+// Các hằng số còn lại sử dụng kiểm tra điều kiện để tránh lỗi trùng lặp
 // Upload paths
-define('AVATAR_UPLOAD_PATH', __DIR__ . '/../assets/uploads/avatars/');
-define('AVATAR_URL_PATH', BASE_URL . '/assets/uploads/avatars/');
+if (!defined('AVATAR_UPLOAD_PATH')) {
+    define('AVATAR_UPLOAD_PATH', __DIR__ . '/../assets/uploads/avatars/');
+}
+if (!defined('AVATAR_URL_PATH')) {
+    define('AVATAR_URL_PATH', BASE_URL . '/assets/uploads/avatars/');
+}
 
 // Maximum avatar file size (2MB in bytes)
-define('MAX_AVATAR_SIZE', 2 * 1024 * 1024);
+if (!defined('MAX_AVATAR_SIZE')) {
+    define('MAX_AVATAR_SIZE', 2 * 1024 * 1024);
+}
 
 // Maximum dimensions for resized avatars
-define('MAX_AVATAR_WIDTH', 200);
-define('MAX_AVATAR_HEIGHT', 200);
+if (!defined('MAX_AVATAR_WIDTH')) {
+    define('MAX_AVATAR_WIDTH', 200);
+}
+if (!defined('MAX_AVATAR_HEIGHT')) {
+    define('MAX_AVATAR_HEIGHT', 200);
+}
 
 // Items per page for pagination
-define('ITEMS_PER_PAGE', 10);
+if (!defined('ITEMS_PER_PAGE')) {
+    define('ITEMS_PER_PAGE', 10);
+}

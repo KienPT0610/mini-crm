@@ -19,43 +19,45 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-light">
-    <div class="container">
-        <div class="row justify-content-center mt-5">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
             <div class="col-md-6 col-lg-5">
                 <div class="card shadow">
-                    <div class="card-body p-4">
-                        <h1 class="text-center mb-4">Mini CRM</h1>
-                        
-                        <?php if (isset($_SESSION['error'])): ?>
-                        <div class="alert alert-danger alert-dismissible fade show">
-                            <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                        <?php endif; ?>
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Mini CRM</h2>
+                        <h5 class="text-center mb-4">Đăng nhập hệ thống</h5>
                         
                         <form action="index.php" method="post">
+                            <input type="hidden" name="action" value="login">
+                            
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
+                                <label for="username" class="form-label">Tên đăng nhập</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                    <input type="text" class="form-control" id="username" name="username" required>
+                                    <input type="text" class="form-control" id="username" name="username" required autofocus>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
+                            
+                            <div class="mb-4">
+                                <label for="password" class="form-label">Mật khẩu</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
                                     <input type="password" class="form-control" id="password" name="password" required>
                                 </div>
                             </div>
+                            
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-sign-in-alt me-1"></i> Đăng nhập
+                                </button>
                             </div>
                         </form>
                     </div>
-                </div>
-                <div class="text-center mt-3 text-muted">
-                    <small>Mini CRM &copy; <?php echo date('Y'); ?></small>
+                    <div class="card-footer text-muted text-center py-3">
+                        <small>Tài khoản demo:<br>
+                        Admin: username = admin, password = admin123<br>
+                        Staff: username = staff, password = staff123</small>
+                    </div>
                 </div>
             </div>
         </div>
